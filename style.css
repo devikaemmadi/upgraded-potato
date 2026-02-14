@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+    transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.moon,
+.nav-link,
+button,
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    outline: none;
+}
+
+/* ================= STAR FIELD ================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(1.5px 1.5px at 70% 80%, white, transparent),
+        radial-gradient(1px 1px at 40% 60%, white, transparent),
+        radial-gradient(1.5px 1.5px at 90% 10%, white, transparent),
+        radial-gradient(2px 2px at 10% 70%, white, transparent),
+        radial-gradient(1px 1px at 60% 20%, white, transparent),
+        radial-gradient(1.5px 1.5px at 30% 90%, white, transparent),
+        radial-gradient(2px 2px at 80% 40%, white, transparent),
+        radial-gradient(1px 1px at 55% 75%, white, transparent),
+        radial-gradient(1.5px 1.5px at 15% 50%, white, transparent);
+    background-repeat: repeat;
+    animation: starsMove 120s linear infinite;
+    transition: opacity 1.2s ease;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(600px); }
+}
+
+/* ================= PHASE BACKGROUNDS ================= */
+
+body.phase-new::before { opacity: 0.15; }
+body.phase-crescent::before { opacity: 0.25; }
+body.phase-skills::before { opacity: 0.35; }
+body.phase-gibbous::before { opacity: 0.45; }
+body.phase-full::before { opacity: 0.6; }
+
+body.phase-new { background: #0a0a0a; }
+body.phase-crescent { background: #111827; }
+body.phase-skills { background: #101522; }
+body.phase-gibbous { background: #1b1f3b; }
+body.phase-full {
+    background: radial-gradient(circle at center, #2b2f77, #000);
+}
+
+/* ================= LEFT SIDEBAR ================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    padding: 40px 25px;
+    background: rgba(10, 15, 25, 0.7);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.sidebar-title {
+    font-size: 24px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    color: #cfe4ff;
+    font-weight: 600;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #a8cfff;
+    transform: translateX(6px);
+}
+
+.nav-link.active {
+    color: white;
+    font-weight: 600;
+}
+
+/* ================= RIGHT SOCIAL SIDEBAR ================= */
+
+.social-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100vh;
+    padding: 40px 0;
+    background: rgba(10, 15, 25, 0.7);
+    backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    z-index: 10;
+}
+
+.social-link {
+    text-decoration: none;
+    color: white;
+}
+
+.social-icon {
+    font-size: 26px;
+    opacity: 0.6;
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(140, 180, 255, 0.5));
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    margin-left: 240px;
+    margin-right: 100px;
+    padding: 20px 40px;
+}
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+}
+
+/* ================= MOON NAV ================= */
+
+.moon-nav {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.moon {
+    cursor: pointer;
+    font-size: 36px;
+    margin: 0 12px;
+    opacity: 0.5;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.moon:hover {
+    opacity: 0.9;
+    transform: scale(1.2);
+}
+
+.moon.active {
+    opacity: 1;
+    transform: scale(1.4);
+}
+
+/* ================= SECTION TRANSITIONS ================= */
+
+.phase-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.phase-content.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: relative;
+}
+
+/* ================= ABOUT ================= */
+
+.about-title {
+    font-size: 32px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+    color: #8ec5ff;
+}
+
+.about-card {
+    background: linear-gradient(145deg, rgba(40, 60, 95, 0.6), rgba(20, 30, 55, 0.75));
+    border-radius: 18px;
+    padding: 32px 36px;
+    text-align: left;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #e2ecff;
+}
+
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tag {
+    background: linear-gradient(120deg, #9ccfff, #6fa8ff);
+    color: #0a0a0a;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.info {
+    color: #d6e6ff;
+    font-size: 17px;
+}
+
+/* ================= COURSES ================= */
+
+.crescent-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 60px;
+    text-align: left;
+}
+
+.course-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.3s ease;
+}
+
+.course-item:hover {
+    transform: translateX(6px);
+}
+
+.course-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(160,200,255,0.5), rgba(90,130,200,0.7));
+    box-shadow: 0 0 20px rgba(140,180,255,0.25);
+}
+
+/* ================= SKILLS ================= */
+
+.skills-card {
+    background: linear-gradient(145deg, rgba(70,40,110,0.6), rgba(40,20,80,0.75));
+    border-radius: 18px;
+    padding: 30px 35px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.35);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.skill {
+    margin-bottom: 22px;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 16px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #8ec5ff, #c9a8ff, #6fa8ff);
+    border-radius: 10px;
+    transition: width 1.2s ease;
+}
+
+/* ================= FUN FACTS ================= */
+
+.gibbous-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.faq-card {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-q {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.faq-a {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+}
+
+/* ================= FULL / PROJECTS ================= */
+
+.full-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.projects-card {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.projects-empty {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+    letter-spacing: 1px;
+}
