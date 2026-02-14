@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phases of Me</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="phase-new">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-title">phases of me</div>
+
+        <div class="sidebar-links">
+            <button class="nav-link active" data-phase="new">🌑 About Me</button>
+            <button class="nav-link" data-phase="crescent">🌒 Courses</button>
+            <button class="nav-link" data-phase="skills">🌓 Skills</button>
+            <button class="nav-link" data-phase="gibbous">🌔 Fun Facts</button>
+            <button class="nav-link" data-phase="full">🌕 Full Moon</button>
+        </div>
+    </div>
+
+    <!-- RIGHT SOCIAL SIDEBAR -->
+    <div class="social-sidebar">
+        <a href="https://www.instagram.com/devika_emmadi/" target="_blank" class="social-link">
+            <i class="fa-brands fa-instagram social-icon"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/devika-emmadi-29a00a312/" target="_blank" class="social-link">
+            <i class="fa-brands fa-linkedin social-icon"></i>
+        </a>
+
+        <a href="https://github.com/YOURUSERNAME" target="_blank" class="social-link">
+            <i class="fa-brands fa-github social-icon"></i>
+        </a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <div class="moon-nav">
+            <span class="moon active" data-phase="new">🌑</span>
+            <span class="moon" data-phase="crescent">🌒</span>
+            <span class="moon" data-phase="skills">🌓</span>
+            <span class="moon" data-phase="gibbous">🌔</span>
+            <span class="moon" data-phase="full">🌕</span>
+        </div>
+
+        <div class="content">
+
+            <!-- ABOUT -->
+            <section class="phase-content active" id="new">
+                <h1 class="about-title">ABOUT</h1>
+                <div class="about-card">
+                    <div class="about-icon">🌑</div>
+                    <p class="about-text">
+                        Hi, I’m Devika, part engineer, part overthinker,
+                        professionally curious and permanently moon-aligned.
+                        I build systems by day and spiral into midnight ideas by night.
+                        Quiet on the outside. Galaxies on the inside.
+                    </p>
+
+                    <div class="about-grid">
+                        <div class="about-row"><span class="tag">NAME</span><span class="info">Devika</span></div>
+                        <div class="about-row"><span class="tag">PRONOUNS</span><span class="info">She / Her</span></div>
+                        <div class="about-row"><span class="tag">AGE</span><span class="info">21</span></div>
+                        <div class="about-row"><span class="tag">TIMEZONE</span><span class="info">AEST (UTC+10)</span></div>
+                        <div class="about-row"><span class="tag">BIRTHDAY</span><span class="info">August 14</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COURSES -->
+            <section class="phase-content" id="crescent">
+                <h1 class="crescent-title">Courses I've Done</h1>
+                <div class="course-grid">
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP1151</div><div class="course-sub">@Programming Fundamentals</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP1521</div><div class="course-sub">@Systems Programming</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP1531</div><div class="course-sub">@Software Engineering</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP2521</div><div class="course-sub">@Data Structures</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP2041</div><div class="course-sub">@Software Construction</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP3331</div><div class="course-sub">@Computer Networks</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP2511</div><div class="course-sub">@OO Design</div></div></div>
+                    <div class="course-item"><div class="course-circle"></div><div><div class="course-name">COMP4920</div><div class="course-sub">@Capstone Project</div></div></div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="phase-content" id="skills">
+                <h1 class="quarter-title">Skills</h1>
+
+                <div class="skills-card">
+
+                    <div class="skill">
+                        <span class="skill-name">Emotional Pattern Recognition</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="90%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span class="skill-name">Narrative Deconstruction</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="88%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span class="skill-name">Precision Under Pressure</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="85%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span class="skill-name">Quiet Observation</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="82%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span class="skill-name">Obsessive Curiosity</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="100%"></div></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- FUN FACTS -->
+            <section class="phase-content" id="gibbous">
+                <h1 class="gibbous-title">Fun Facts</h1>
+
+                <div class="faq-card">
+
+                    <div class="faq-item">
+                        <div class="faq-q">Q: something most people misunderstand about you?</div>
+                        <div class="faq-a">
+                            A: I’m not detached, I just process deeply before reacting.
+                            If I’m quiet, I’m thinking.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">Q: what relaxes you?</div>
+                        <div class="faq-a">
+                            A: reading until 2am and pretending I’ll sleep early tomorrow.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">Q: chaotic trait?</div>
+                        <div class="faq-a">
+                            A: I will rewatch the same show six times just to study the subtext.
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- FULL -->
+            <section class="phase-content" id="full">
+                <h1 class="full-title">Projects</h1>
+
+                <div class="projects-card">
+                    <p class="projects-empty">no projects as of yet.</p>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
